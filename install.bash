@@ -134,7 +134,6 @@ log "${attention}Starting ${hermes} ${attention}installation"
 
 check_homebrew_version
 
-backup_dotfiles
 
 install_vundle
 
