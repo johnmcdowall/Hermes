@@ -32,7 +32,7 @@ Bundle 'benmills/vimux'
 Bundle 'pgr0ss/vimux-ruby-test'
 Bundle 'cloud8421/vimux-cucumber'
 Bundle 'jgdavey/vim-turbux'
-
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'cloud8421/vim-neatstatus'
 Bundle 'tomasr/molokai'
 

@@ -22,7 +22,7 @@ alias gpsuh='git push'
 alias gpr='git pull --rebase'
 alias grc='git rebase --continue'
 alias git-clean='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
-
+alias fs='foreman start'
 alias rdm='be rake db:migrate'
 alias rdtp='be rake db:test:prepare'
 
