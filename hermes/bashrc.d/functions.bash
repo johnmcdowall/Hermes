@@ -55,21 +55,27 @@ function dev-env(){
   tmux attach -t "$project_name"
  }
 
- function hack() {
-   ref=$(git symbolic-ref HEAD 2> /dev/null) || exit 0
-   CURRENT="${ref#refs/heads/}"
-   git checkout master
-   git pull origin master
-   git checkout ${CURRENT}
-   git rebase master
- }
+function hack() {
+ ref=$(git symbolic-ref HEAD 2> /dev/null) || exit 0
+ CURRENT="${ref#refs/heads/}"
+ git checkout master
+ git pull origin master
+ git checkout ${CURRENT}
+ git rebase master
+}
 
- function ship() {
-   ref=$(git symbolic-ref HEAD 2> /dev/null) || exit 0
-   CURRENT="${ref#refs/heads/}"
-   git checkout master
-   git merge ${CURRENT}
-   git push origin master
-   git checkout ${CURRENT}
- }
- 
+function ship() {
+ ref=$(git symbolic-ref HEAD 2> /dev/null) || exit 0
+ CURRENT="${ref#refs/heads/}"
+ git checkout master
+ git merge ${CURRENT}
+ git push origin master
+ git checkout ${CURRENT}
+}
+
+function dwf() {
+ ref=$(git symbolic-ref HEAD 2> /dev/null) || exit 0
+ CURRENT="${ref#refs/heads/}"
+ git checkout master
+ git branch -d ${CURRENT}
+}
