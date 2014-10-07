@@ -106,6 +106,8 @@ let g:ctrlp_custom_ignore = {
       \ 'dir':  'public\/assets-test\|tmp'
       \ }
 
+let g:ctrlp_cmd = 'CtrlP'
+
 source $HOME/.vim/autocommands.vim
 source $HOME/.vim/plugins.vim
 source $HOME/.vim/shortcuts.vim

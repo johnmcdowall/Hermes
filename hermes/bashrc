@@ -44,3 +44,7 @@ configure_editor
 tmuxify_command_prompt
 
 eval "$(direnv hook $0)"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
