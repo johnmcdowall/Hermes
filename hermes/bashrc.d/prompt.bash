@@ -11,12 +11,6 @@ _pwd ()
     echo "$PRE$NAME"
 }
 
-__rbenv_ps1 ()
-{
-  rbenv_ruby_version=`rbenv version | sed -e 's/ .*//'`
-  printf $rbenv_ruby_version
-}
-
 bash_prompt() {
   local NONE="\[\033[0m\]"    # unsets color to term's fg color
 
@@ -55,7 +49,7 @@ bash_prompt() {
 
   GIT_PS1_SHOWDIRTYSTATE=true
   GIT_PS1_SHOWUNTRACKEDFILES=true
-  PS1="$C\$(__rbenv_ps1) $EMY\$(_pwd 20)$EMW\$(__git_branch)${NONE} 🚀  "
+  PS1="$EMR\A$NONE [$EMY\$(_pwd 20)$EMW\$(__git_branch)${NONE}] "
 }
 
 bash_prompt
