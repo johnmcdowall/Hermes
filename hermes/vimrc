@@ -60,6 +60,7 @@ fixdel
 
 " Send more characters for redraws
 set ttyfast
+set lazyredraw
 
 " Use Bash as shell
 set shell=/usr/local/bin/bash
