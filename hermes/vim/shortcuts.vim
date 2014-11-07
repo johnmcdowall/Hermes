@@ -87,3 +87,6 @@ let g:splitjoin_join_mapping = ''
 
 nmap <Leader>j :SplitjoinJoin<cr>
 nmap <Leader>s :SplitjoinSplit<cr>
+
+nmap \l :setlocal number!<CR>
+nmap \o :set paste!<CR>
