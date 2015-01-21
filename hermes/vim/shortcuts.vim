@@ -4,6 +4,12 @@ let mapleader = ","
 " Help for word under cursor
 :map <leader>h "zyw:exe "h ".@z.""<CR>
 
+autocmd FileType scss,css nnoremap <buffer> <leader>k :call CSScomb()<CR>
+function! CSScomb()
+  execute "silent !csscomb " . expand('%')
+  redraw!
+endfunction
+
 " Autocomplete
 function! Tab_Or_Complete()
   if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
