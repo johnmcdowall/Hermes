@@ -38,6 +38,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'cloud8421/vim-neatstatus'
 Bundle 'tomasr/molokai'
 Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'scrooloose/syntastic'
+
 
 set nobackup
 set nowritebackup
