@@ -1,9 +1,6 @@
 " Set leader key
 let mapleader = ","
 
-" Help for word under cursor
-:map <leader>h "zyw:exe "h ".@z.""<CR>
-
 autocmd FileType scss,css nnoremap <buffer> <leader>k :call CSScomb()<CR>
 function! CSScomb()
   execute "silent !csscomb " . expand('%')
@@ -42,6 +39,8 @@ map <leader>c <c-_><c-_>
 
 "Saves time; maps the spacebar to colon
 nmap <space> :
+
+map <leader>h :nohlsearch<cr>
 
 "Bubble single lines (kicks butt)
 "http://vimcasts.org/episodes/bubbling-text/
@@ -96,3 +95,8 @@ nmap <Leader>s :SplitjoinSplit<cr>
 
 nmap \l :setlocal number!<CR>
 nmap \o :set paste!<CR>
+
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
