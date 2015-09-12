@@ -24,3 +24,5 @@ nnoremap va/ F/v,
 " Enable spellcheck when needed
 autocmd FileType gitcommit setlocal spell textwidth=72
 autocmd BufRead,BufNewFile {*.md,*.mkd} setlocal spell
+au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead *.es6 set filetype=javascript

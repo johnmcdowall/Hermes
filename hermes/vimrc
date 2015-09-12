@@ -6,40 +6,112 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'rking/ag.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tmhedberg/matchit'
-Bundle 'vim-scripts/tComment'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'Townk/vim-autoclose'
-Bundle 'vim-scripts/closetag.vim'
-Bundle 'AndrewRadev/splitjoin.vim'
 
-Bundle 'mattn/emmet-vim'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'davidoc/taskpaper.vim'
+" Create your own text objects
 Bundle 'kana/vim-textobj-user'
+
+" Syntax checking hacks for vim
+Bundle 'scrooloose/syntastic'
+
+" Vim plugin for the_silver_searcher, ag
+Bundle 'rking/ag.vim'
+
+" Vim script for text filtering and alignment
+Bundle 'godlygeek/tabular'
+
+" Neat Status Line Plugin
+Bundle 'cloud8421/vim-neatstatus'
+
+" Fuzzy file, buffer, mru, tag, etc finder.
+Bundle 'kien/ctrlp.vim'
+
+" A tree explorer plugin for vim.
+Bundle 'scrooloose/nerdtree'
+
+" Emmet mode for VIM 
+Bundle 'mattn/emmet-vim'
+
+" extended % matching for HTML, LaTeX, and many other languages
+Bundle 'tmhedberg/matchit'
+
+" An extensible & universal comment vim-plugin that also handles embedded
+" filetypes
+Bundle 'vim-scripts/tComment'
+
+" easily search for, substitute, and abbreviate multiple variants of a word
+Bundle 'tpope/vim-abolish'
+
+" provides mappings to easily delete, change and add such surroundings in
+" pairs.
+Bundle 'tpope/vim-surround'
+
+" vim plugin to interact with tmux
+Bundle 'benmills/vimux'
+
+" Vim Markdown runtime files
+Bundle 'tpope/vim-markdown'
+
+" Ruby on Rails power tools
+Bundle 'tpope/vim-rails'
+
+" wisely add end in ruby, endfunction/endif/more in vim script, etc
+Bundle 'tpope/vim-endwise'
+
+"Lightweight support for Ruby's Bundler
+"Bundle 'tpope/vim-bundler'
+
+" rake.vim: it's like rails.vim without the rails
+" Bundle 'tpope/vim-rake'
+
+" Ruby highlighting 
+Bundle 'vim-ruby/vim-ruby'
+
+" A custom text object for selecting ruby blocks.
 Bundle 'nelstrom/vim-textobj-rubyblock'
 
-Bundle 'benmills/vimux'
-Bundle 'pgr0ss/vimux-ruby-test'
-Bundle 'cloud8421/vimux-cucumber'
-Bundle 'jgdavey/vim-turbux'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'cloud8421/vim-neatstatus'
+" run ruby tests using vimux
+" Bundle 'pgr0ss/vimux-ruby-test'
+
+" Turbo Ruby testing with tmux
+" Bundle 'jgdavey/vim-turbux'
+
+" pairs of handy bracket mappings
+Bundle 'tpope/vim-unimpaired'
+
+" For instance if you type an '(', ``autoclose`` will automatically insert a
+" ')' and put the cursor between
+Bundle 'jiangmiao/auto-pairs'  
+
+" Auto close (X)HTML tags
+Bundle 'vim-scripts/closetag.vim'
+
+" switching between a single-line statement and a multi-line one.
+Bundle 'AndrewRadev/splitjoin.vim'
+
+" A Vim plugin that always highlights the enclosing html/xml tags
+Bundle 'valloric/MatchTagAlways'
+
+" Javascript syntax highlighting 
+Bundle 'pangloss/vim-javascript'
+
+" ES6 Syntax highlighting 
+Bundle 'jussi-kalliokoski/harmony.vim'
+
+" JSX syntax highlighting
+Bundle 'mxw/vim-jsx'
+
+" Taskpaper operations and highlighting
+Bundle 'davidoc/taskpaper.vim'
+
+" CS syntax highlighting
+" Bundle 'kchmck/vim-coffee-script'
+
+" Molokai color theme
 Bundle 'tomasr/molokai'
-Bundle 'altercation/vim-colors-solarized'
+
+" Mustache/handlebars syntax highlighting 
 Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'scrooloose/syntastic'
+
 
 
 set nobackup
@@ -112,12 +184,13 @@ set complete+=kspell
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags -R --exclude=.git --exclude=log -f ./.tags *"
 set tags+=.tags
 
-" Ctrlp
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  'public\/assets-test\|tmp'
-      \ }
-
-let g:ctrlp_cmd = 'CtrlP'
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'javascript.jsx' : 1,
+    \}
 
 let g:mustache_abbreviations = 1
 
