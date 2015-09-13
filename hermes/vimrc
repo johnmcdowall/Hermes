@@ -22,6 +22,9 @@ Bundle 'godlygeek/tabular'
 " Neat Status Line Plugin
 Bundle 'cloud8421/vim-neatstatus'
 
+" Indent guides
+Bundle 'nathanaelkane/vim-indent-guides'
+
 " Fuzzy file, buffer, mru, tag, etc finder.
 Bundle 'kien/ctrlp.vim'
 
@@ -101,6 +104,9 @@ Bundle 'jussi-kalliokoski/harmony.vim'
 " JSX syntax highlighting
 Bundle 'mxw/vim-jsx'
 
+" JSON support
+Bundle 'helino/vim-json'
+
 " Taskpaper operations and highlighting
 Bundle 'davidoc/taskpaper.vim'
 
@@ -109,6 +115,10 @@ Bundle 'davidoc/taskpaper.vim'
 
 " Molokai color theme
 Bundle 'tomasr/molokai'
+
+" BClear theme
+Bundle 'vim-scripts/bclear'
+Bundle 'Lokaltog/vim-distinguished'
 
 " Mustache/handlebars syntax highlighting 
 Bundle 'mustache/vim-mustache-handlebars'

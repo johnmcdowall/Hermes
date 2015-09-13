@@ -1,3 +1,5 @@
+set-option -g status-position top
+set -s escape-time 0
 set -g status-left-length 32
 set -g status-right-length 150
 
