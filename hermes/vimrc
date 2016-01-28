@@ -129,6 +129,9 @@ Bundle 'Lokaltog/vim-distinguished'
 " Mustache/handlebars syntax highlighting 
 Bundle 'mustache/vim-mustache-handlebars'
 
+" Elixir - get on the hype train choo cooo!
+Bundle 'elixir-lang/vim-elixir'
+
 
 
 set nobackup
