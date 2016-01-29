@@ -133,20 +133,18 @@ Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'elixir-lang/vim-elixir'
 
 
-
 set nobackup
 set nowritebackup
 set notimeout
 set ttimeout
 set ttimeoutlen=10
-set noswapfile                    " It's 2012, Vim."
+set noswapfile                    " It's 2016, Vim."
 set history=50
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set hlsearch      " highlight the search results
 set laststatus=2  " Always display the status line
-set t_Co=256
 syntax on
 
 set spelllang=en
@@ -162,6 +160,7 @@ fixdel
 " Send more characters for redraws
 set ttyfast
 set lazyredraw
+set t_ut= " improve screen clearing by using the background color
 
 " Use Bash as shell
 set shell=/usr/local/bin/bash
@@ -179,6 +178,7 @@ set expandtab
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
+
 " Clipboard fix for OsX
 set clipboard=unnamed
 
@@ -204,21 +204,18 @@ set complete+=kspell
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags -R --exclude=.git --exclude=log -f ./.tags *"
 set tags+=.tags
 
-let g:mta_filetypes = {
-    \ 'html' : 1,
-    \ 'xhtml' : 1,
-    \ 'xml' : 1,
-    \ 'jinja' : 1,
-    \ 'javascript.jsx' : 1,
-    \}
-
-let g:mustache_abbreviations = 1
-
-" filenames like *.xml, *.html, *.xhtml, ...
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
-
-let g:AutoPairsMultilineClose = 0
-let g:AutoPairsFlyMode = 0
+if exists("+undofile")
+  " undofile - This allows you to use undos after exiting and restarting
+  " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
+  " :help undo-persistence
+  " This is only present in 7.3+
+  if isdirectory($HOME . '/.vim/undo') == 0
+    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+  endif
+  set undodir=./.vim-undo//
+  set undodir+=~/.vim/undo//
+  set undofile
+endif
 
 source $HOME/.vim/autocommands.vim
 source $HOME/.vim/plugins.vim

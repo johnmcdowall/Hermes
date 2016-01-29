@@ -19,6 +19,14 @@ augroup vimrcEx
   au FileType ruby,javascript,css,scss,sass,html autocmd BufWritePre <buffer> :%s/\s\+$//e
 augroup END
 
+augroup erlang
+  au!
+  au BufNewFile,BufRead *.erl setlocal tabstop=4
+  au BufNewFile,BufRead *.erl setlocal shiftwidth=4
+  au BufNewFile,BufRead *.erl setlocal softtabstop=4
+  au BufNewFile,BufRead relx.config setlocal filetype=erlang
+augroup END
+
 " Save when losing focus
 au FocusLost * :silent! wall
 
@@ -26,3 +34,4 @@ au FocusLost * :silent! wall
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
+

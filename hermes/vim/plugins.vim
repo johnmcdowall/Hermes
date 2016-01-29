@@ -32,3 +32,19 @@ endif
 let NERDTreeShowHidden=0
 let NERDTreeShowBookmarks=0
 let g:NERDTreeChDirMode=2
+
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'javascript.jsx' : 1,
+    \}
+
+let g:mustache_abbreviations = 1
+
+" filenames like *.xml, *.html, *.xhtml, ...
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
+
+let g:AutoPairsMultilineClose = 0
+let g:AutoPairsFlyMode = 0

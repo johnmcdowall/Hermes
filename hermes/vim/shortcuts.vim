@@ -96,7 +96,12 @@ nmap <Leader>s :SplitjoinSplit<cr>
 nmap \l :setlocal number!<CR>
 nmap \o :set paste!<CR>
 
+" All the exits
 :command WQ wq
 :command Wq wq
 :command W w
 :command Q q
+
+" Redraw my screen
+nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
+
