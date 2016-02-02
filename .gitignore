@@ -3,4 +3,5 @@
 hermes/vim/bundle
 hermes/vim/spell/*.add
 hermes/vim/spell/*.add.spl
+hermes/vim/undo
 hermes/bashrc.d/hermes-install-path.bash
