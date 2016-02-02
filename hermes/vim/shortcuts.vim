@@ -37,9 +37,6 @@ map <c-l> <c-w>l
 " Faster shortcut for commenting. Requires T-Comment plugin
 map <leader>c <c-_><c-_>
 
-"Saves time; maps the spacebar to colon
-nmap <space> :
-
 map <leader>h :nohlsearch<cr>
 
 "Bubble single lines (kicks butt)
