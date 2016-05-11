@@ -1,5 +1,5 @@
 alias ls='ls -G'
-alias ll='ls -hl'
+alias ll='ls -hl --group-directories-first'
 alias bake='bundle exec rake'
 alias be='bundle exec'
 alias bi='bundle install'
@@ -32,3 +32,15 @@ alias download="curl -OJ"
 alias waste=history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
 
 alias tmux="tmux -2"
+
+# npm
+alias ni="npm install";
+alias nis="npm i -S "
+alias nid="npm i -D "
+alias nig="npm i -g "
+alias nr="npm run $1";
+alias nrd="npm run dev";
+alias nrs="npm run start";
+alias nrb="npm run build";
+alias nrt="npm run test";
+alias nrc="npm run commit";

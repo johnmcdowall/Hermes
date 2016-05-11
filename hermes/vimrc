@@ -22,6 +22,9 @@ Bundle 'scrooloose/syntastic'
 " Vim plugin for the_silver_searcher, ag
 Bundle 'rking/ag.vim'
 
+" CSS Comb
+Bundle 'git://github.com/csscomb/vim-csscomb.git'
+
 " Vim script for text filtering and alignment
 Bundle 'godlygeek/tabular'
 

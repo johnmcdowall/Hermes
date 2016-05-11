@@ -7,6 +7,11 @@ let g:NeatStatusLine_color_insert = 'guifg=#ffffff guibg=#ff0000 gui=bold ctermf
 let g:NeatStatusLine_color_filetype='guifg=#000000 guibg=#00ffff gui=bold ctermfg=15 ctermbg=23 cterm=bold'
 let g:NeatStatusLine_separator = ''
 
+"folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
 
 set t_Co=256 " Force 256 colors
 
