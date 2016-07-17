@@ -2,6 +2,7 @@ profile
 bash_profile
 bashrc
 bashrc.d
+config
 vim
 vimrc
 tmux.conf
