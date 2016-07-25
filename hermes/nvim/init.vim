@@ -1,0 +1,1 @@
+/Users/jmd/.hermes/hermes/nvimrc
