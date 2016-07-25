@@ -7,3 +7,4 @@ hermes/vim/undo
 hermes/bashrc.d/hermes-install-path.bash
 hermes/nvim/plugged
 hermes/nvim/backup
+hermes/nvim/undodir
