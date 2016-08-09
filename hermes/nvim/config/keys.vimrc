@@ -1,17 +1,16 @@
 " map Leader
 let mapleader = ","
-" keep backward f search, remapping it to ,;
-nnoremap <Leader>; ,
+
 
 " in-line scrolling
 nmap <Leader>j gj
 nmap <Leader>k gk
 
 " All the exits
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
+:command! WQ wq
+:command! Wq wq
+:command! W w
+:command! Q q
 
 " Redraw my screen
 nnoremap U :syntax sync fromstart<cr>:redraw!<cr>
@@ -24,6 +23,7 @@ nnoremap <Leader>bf :bf<CR>
 nnoremap <Leader>bl :bl<CR>
 nnoremap <Leader>bw :w<CR>:bd<CR>
 nnoremap <Leader>bd :bd!<CR>
+
 " new buffer/tab
 nnoremap <Leader>e :enew<CR>
 
@@ -51,16 +51,6 @@ nnoremap <Leader>pm :CtrlPMRUFiles<CR>
 nnoremap <Leader>pr :CtrlPMRUFiles<CR>
 nnoremap <Leader>pb :CtrlPBuffer<CR>
 
-" Function keys
-nnoremap <silent> <F2> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-nnoremap <F3> :set hlsearch!<CR>
-nnoremap <F5> :source $HOME/.config/nvim/init.vim<CR>
-nnoremap <F6> :NERDTreeToggle<CR>
-nnoremap <F7> :UndotreeToggle<CR>
-nnoremap <F8> :Geeknote<CR>
-" indent whole file according to syntax rules
-noremap <F9> gg=G
-
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
@@ -78,11 +68,6 @@ nmap <C-s> <C-a>
 
 " Word count selection
 vnoremap <Leader>w :w !wc -w<CR>
-
-" vim paste mode toggle (for fixing indentation issues when pasting text)
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
-set showmode
 
 " override read-only permissions
 cmap w!! %!sudo tee > /dev/null %
@@ -111,13 +96,17 @@ nmap <Leader><Space>, :ll<CR>
 nmap <Leader><Space>n :lnext<CR>
 nmap <Leader><Space>p :lprev<CR>
 
+" Reload config
+nmap <Leader>o :source $HOME/.config/nvim/init.vim<CR>
+
 " folding
 nmap <Leader>f zf%
 
 " deoplete tab-complete
-inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
+" inoremap <expr><Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " ,<tab> for regular tab
-inoremap <Leader><Tab> <Space><Space>
+"inoremap <Leader><Tab> <Space><Space>
 
 " tern
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
@@ -153,22 +142,6 @@ vmap <C-Right> >gv
 vmap <C-Left> <gv Faster shortcut for commenting. Requires T-Comment plugin
 map <leader>c <c-_><c-_>
 
-map <leader>h :nohlsearch<cr>
+" Emmet
+let g:user_emmet_expandabbr_key = '<c-e>'
 
-"Bubble single lines (kicks butt)
-"http://vimcasts.org/episodes/bubbling-text/
-nmap <C-Up> ddkP
-nmap <C-Down> ddp
-nmap <C-Left> <<
-nmap <C-Right> >>
-
-"Horizontal bubbling
-vnoremap < <gv
-vnoremap > >gv
-nmap gV `[v`]
-
-"Bubble multiple lines
-vmap <C-Up> xkP`[V`]
-vmap <C-Down> xp`[V`]
-vmap <C-Right> >gv
-vmap <C-Left> <gv

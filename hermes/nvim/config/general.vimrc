@@ -1,8 +1,9 @@
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 syntax on
 syntax enable
 
 set hlsearch
-
 set number
 
 " allow backspacing over everything in insert mode
@@ -57,6 +58,8 @@ if has("autocmd")
 
   augroup END
 
+  autocmd FileType eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType scss,css nnoremap <buffer> <leader>bc :call CSScomb()<CR>
 endif " has("autocmd")
 
 " tab stuff
@@ -126,3 +129,24 @@ set clipboard=unnamedplus
 
 " Use Bash as shell
 set shell=/usr/local/bin/bash
+
+" Set the title of the Terminal to the currently open file
+set title
+function! SetTerminalTitle()
+    let titleString = expand('%:t')
+    if len(titleString) > 0
+        let &titlestring = expand('%:t')
+        " this is the format iTerm2 expects when setting the window title
+        let args = "\033];".&titlestring."\007"
+        let cmd = 'silent !echo -e "'.args.'"'
+        execute cmd
+        redraw!
+    endif
+endfunction
+
+"autocmd BufEnter * call SetTerminalTitle()o
+
+function! CSScomb()
+  execute "silent !csscomb " . expand('%')
+  redraw!
+endfunction
