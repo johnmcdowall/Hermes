@@ -30,12 +30,14 @@ Plug 'justinmk/vim-sneak'
 Plug 'vim-scripts/camelcasemotion'
 Plug 'tpope/vim-ragtag'
 Plug 'Valloric/MatchTagAlways'
+Plug 'rstacruz/vim-xtract'
 
 " eye candy
 Plug 'myusuf3/numbers.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'lilydjwg/colorizer', { 'on': 'ColorToggle' }
+Plug 'trevordmiller/nova-vim'
 
 
 " javascript
@@ -50,6 +52,8 @@ Plug 'carlitux/deoplete-ternjs'
 Plug 'digitaltoad/vim-jade'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
+Plug 'nikvdp/ejs-syntax'
+Plug 'briancollins/vim-jst'
 
 " ruby
 Plug 'vim-ruby/vim-ruby'

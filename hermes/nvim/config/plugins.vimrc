@@ -46,7 +46,7 @@ set background=dark
 " " http://www.shallowsky.com/linux/noaltscreen.html
 set t_ti= t_te=
 set background=dark
-colorscheme jellybeans
+colorscheme nova
 
 " make background transparent
 "hi Normal ctermbg=NONE
@@ -57,7 +57,7 @@ hi LineNr ctermbg=234
 let g:ctrlp_prompt_mappings={'PrtClearCache()':['<Leader><F5>']}
 let g:ctrlp_prompt_mappings={'PrtdeleteEnt()':['<Leader><F7>']}
 let g:ctrlp_match_window='bottom,order:btt,min:2,max:10'
-let g:ctrlp_working_path_mode = 2
+let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/.hg/*,*/.svn/*,*/vendor/cache/*,*/public/system/*,*/tmp/*,*/log/*,*/.git/*,*/.jhw-cache/*,*/solr/data/*,*/node_modules/*,*/.DS_Store
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_extensions = ['tag']
@@ -101,7 +101,7 @@ let g:used_javascript_libs = 'jquery,underscore,react,flux,chai'
 augroup omnifuncs
   autocmd!
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType html,markdown,ejs setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
@@ -119,6 +119,7 @@ endif
 let g:colorizer_startup = 0
 let g:colorizer_nomap = 1
 let base16colorspace=256
+
 " Syntax higihlight any JSX code
 let g:jsx_ext_required = 0
 
@@ -135,6 +136,7 @@ let g:mta_filetypes = {
     \ 'eruby' : 1,
     \ 'jinja' : 1,
     \ 'jsx' : 1,
+    \ 'ejs' : 1,
     \}
 
 let g:mta_use_matchparen_group = 1

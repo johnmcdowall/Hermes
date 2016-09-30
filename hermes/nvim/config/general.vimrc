@@ -2,7 +2,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 syntax on
 syntax enable
-
+set noswapfile
 set hlsearch
 set number
 
@@ -58,7 +58,9 @@ if has("autocmd")
 
   augroup END
 
-  autocmd FileType eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  au BufRead,BufNewFile *.ejs setfiletype html
+
+  autocmd FileType eruby,ejs setlocal shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType scss,css nnoremap <buffer> <leader>bc :call CSScomb()<CR>
 endif " has("autocmd")
 
@@ -96,6 +98,9 @@ set ttyfast
 set t_ut= " improve screen clearing by using the background color
 
 set magic " for regular expressions
+
+" Make strings with - a keyword
+setlocal iskeyword+=-
 
 if &listchars ==# 'eol:$'
   set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+

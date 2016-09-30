@@ -44,3 +44,5 @@ alias nrs="npm run start";
 alias nrb="npm run build";
 alias nrt="npm run test";
 alias nrc="npm run commit";
+
+alias vim="nvim"
