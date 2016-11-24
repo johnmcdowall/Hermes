@@ -8,4 +8,9 @@ export RUBY_GC_MALLOC_LIMIT_MAX=50000000
 export RUBY_GC_OLDMALLOC_LIMIT=16000000
 export RUBY_GC_OLDMALLOC_LIMIT_MAX=32000000
 
-source ~/.env 
+# History
+export HISTFILESIZE=20000
+export HISTSIZE=${HISTFILESIZE}
+export HISTCONTROL=ignoreboth:erasedups
+
+source ~/.env

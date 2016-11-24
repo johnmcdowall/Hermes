@@ -39,7 +39,7 @@ function dev-env(){
     tmux select-layout -t "$project_name" main-horizontal
 
     # in the terminal window, move to the project directory
-    # this is the small terminal window. 
+    # this is the small terminal window.
     tmux send-keys -t "$project_name":1.1 "cd \"$1\";clear" C-m
     tmux select-pane -t 1
     tmux resize-pane -D 15
@@ -78,4 +78,16 @@ function dwf() {
  CURRENT="${ref#refs/heads/}"
  git checkout master
  git branch -d ${CURRENT}
+}
+
+function emoji() {
+  cat ~/.tableflips | grep $1 -A 1 | tail -1 | tr -d '\r\n' | pbcopy
+}
+
+function makepassword() {
+  if [[ -n "$1" ]]; then
+    LANG=C tr -dc 'a-zA-Z0-9~!#$%^&*' < /dev/urandom | fold -w $1 | head -n 1
+  else
+    LANG=C tr -dc 'a-zA-Z0-9~!#$%^&*' < /dev/urandom | fold -w 40 | head -n 1
+  fi
 }

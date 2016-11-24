@@ -55,6 +55,13 @@ Plug 'mxw/vim-jsx'
 Plug 'nikvdp/ejs-syntax'
 Plug 'briancollins/vim-jst'
 
+" ES2015 code snippets
+Plug 'epilande/vim-es2015-snippets'
+
+" React code snippets (Optional)
+Plug 'epilande/vim-react-snippets'
+
+
 " ruby
 Plug 'vim-ruby/vim-ruby'
 

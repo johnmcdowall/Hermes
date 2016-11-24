@@ -142,3 +142,6 @@ let g:mta_filetypes = {
 let g:mta_use_matchparen_group = 1
 
 let g:vim_json_syntax_conceal = 0
+
+" Set paren matching colors
+hi MatchParen guibg=NONE guifg=red gui=bold
