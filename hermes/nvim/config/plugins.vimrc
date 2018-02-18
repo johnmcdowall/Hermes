@@ -1,6 +1,3 @@
-filetype plugin on
-filetype indent on
-
 " deoplete
 let g:deoplete#enable_at_startup = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -26,6 +23,7 @@ let g:neomake_error_sign = {
   \ }
 
 let g:neomake_open_list = 2
+let g:neomake_list_height = 3
 
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']
@@ -35,30 +33,16 @@ let g:neomake_javascript_eslint_maker = {
             \ 'errorformat': '%f: line %l\, col %c\, %m'
             \ }
 
-set t_Co=256 " Force 256 colors
-" " in case t_Co alone doesn't work, add this as well:
-" " i.e. Force 256 colors harder
-let &t_AB="\e[48;5;%dm"
-let &t_AF="\e[38;5;%dm"
-let $TERM='screen-256color'
-set background=dark
-" " Prevent Vim from clobbering the scrollback buffer. See
-" " http://www.shallowsky.com/linux/noaltscreen.html
-set t_ti= t_te=
-set background=dark
-colorscheme nova
-
-" make background transparent
-"hi Normal ctermbg=NONE
-"hi EndOfBuffer ctermbg=NONE
-hi LineNr ctermbg=234
-
 " CtrlP
+set wildignore+=*/.hg/*,*/.svn/*,*/vendor/cache/*,*/public/system/*,*/tmp/*,*/log/*,*/.git/*
+set wildignore+=*/.jhw-cache/*,*/solr/data/*,*/node_modules/*,*/.DS_Store
+set wildignore+=*/app/assets/images/*,*/public/demos/*
+set wildignore+=*.jpg,*.png
+
 let g:ctrlp_prompt_mappings={'PrtClearCache()':['<Leader><F5>']}
 let g:ctrlp_prompt_mappings={'PrtdeleteEnt()':['<Leader><F7>']}
 let g:ctrlp_match_window='bottom,order:btt,min:2,max:10'
 let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/.hg/*,*/.svn/*,*/vendor/cache/*,*/public/system/*,*/tmp/*,*/log/*,*/.git/*,*/.jhw-cache/*,*/solr/data/*,*/node_modules/*,*/.DS_Store
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_extensions = ['tag']
 
@@ -79,6 +63,8 @@ if executable('ag')
       \ --ignore .DS_Store
       \ --ignore node_modules
       \ --ignore "**/*.pyc"
+      \ --ignore public/demos
+      \ --ignore app/assets/images
       \ -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
@@ -145,3 +131,10 @@ let g:vim_json_syntax_conceal = 0
 
 " Set paren matching colors
 hi MatchParen guibg=NONE guifg=red gui=bold
+
+let g:prettier#autoformat = 0
+let g:prettier#config#semi = 'false'
+let g:prettier#config#use_tabs = 'false'
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#semi = 'false'
+

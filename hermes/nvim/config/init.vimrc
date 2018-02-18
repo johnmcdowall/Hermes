@@ -1,23 +1,19 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " colorschemes
-Plug 'nanotech/jellybeans.vim'
-Plug 'chriskempson/base16-vim'
+Plug 'w0ng/vim-hybrid'
 
 " general
 " Plug 'ervandew/supertab'
 Plug 'benekastah/neomake'
 Plug 'Shougo/deoplete.nvim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'haya14busa/incsearch.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 " editing
 Plug 'junegunn/vim-easy-align'
-Plug 'mbbill/undotree'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 Plug 'nathanaelkane/vim-indent-guides' " `,ig` to toggle
@@ -26,8 +22,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-ragtag'
 Plug 'justinmk/vim-sneak'
-Plug 'vim-scripts/camelcasemotion'
 Plug 'tpope/vim-ragtag'
 Plug 'Valloric/MatchTagAlways'
 Plug 'rstacruz/vim-xtract'
@@ -55,12 +51,10 @@ Plug 'mxw/vim-jsx'
 Plug 'nikvdp/ejs-syntax'
 Plug 'briancollins/vim-jst'
 
-" ES2015 code snippets
-Plug 'epilande/vim-es2015-snippets'
-
-" React code snippets (Optional)
-Plug 'epilande/vim-react-snippets'
-
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
 
 " ruby
 Plug 'vim-ruby/vim-ruby'
@@ -70,7 +64,7 @@ Plug 'elixir-lang/vim-elixir'
 
 " other
 Plug 'mattn/emmet-vim'
-"Plug 'othree/html5.vim'
+Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/csscomplete.vim'
 

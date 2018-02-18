@@ -1,10 +1,19 @@
 " map Leader
-let mapleader = ","
+"
+noremap <Space> <Nop>
+sunmap <Space>
+let g:mapleader = " "
 
+" NERDTree configuration
+let NERDTreeIgnore=['\.rbc$', '\~$']
+map <Leader>, :NERDTreeToggle<CR>
 
 " in-line scrolling
 nmap <Leader>j gj
 nmap <Leader>k gk
+
+" reopen last file
+nmap <Leader><Leader> <c-^>
 
 " All the exits
 :command! WQ wq
@@ -54,6 +63,7 @@ nnoremap <Leader>pb :CtrlPBuffer<CR>
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -71,9 +81,6 @@ vnoremap <Leader>w :w !wc -w<CR>
 
 " override read-only permissions
 cmap w!! %!sudo tee > /dev/null %
-
-" allow ,, for vimsneak
-nmap <Leader>, <Plug>SneakPrevious
 
 " camelCase motion settings
 map <silent> w <Plug>CamelCaseMotion_w
@@ -104,9 +111,40 @@ nmap <Leader>f zf%
 
 " deoplete tab-complete
 " inoremap <expr><Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " ,<tab> for regular tab
 "inoremap <Leader><Tab> <Space><Space>
+
+imap <expr> <tab> TabComplete()
+smap <expr> <tab> TabComplete()
+xmap <expr> <tab> TabComplete()
+
+function! TabComplete()
+  if &filetype =~ 'html\|css\|js\|jsx\|erb\|eruby' && IsEmmetExpandable()
+    return "\<plug>(emmet-expand-abbr)"
+  elseif pumvisible()
+    return "\<c-n>"
+  else
+    return "\<tab>"
+  endif
+endfunction
+
+function! IsEmmetExpandable()
+  if !emmet#isExpandable() | return 0 | endif
+  if &filetype =~ 'css' | return 1 | endif
+
+  let expr = matchstr(getline('.')[:col('.')], '\(\S\+\)$')
+  return expr =~ '[.#>+*]' || index(s:emmetElements, expr) >= 0
+endfunction
+
+let s:emmetElements = ['a', 'abbr', 'acronym', 'address', 'applet', 'area', 'article', 'aside', 'audio', 'b', 'base', 'basefont', 'bdi', 'bdo', 'big', 'blockquote', 'body', 'br', 'button', 'canvas', 'caption', 'center', 'cite', 'code', 'col', 'colgroup', 'datalist', 'dd', 'del', 'details', 'dfn', 'dialog', 'dir', 'div', 'dl', 'dt', 'em', 'embed', 'fieldset', 'figcaption', 'figure', 'font', 'footer', 'form', 'frame', 'frameset', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'head', 'header', 'hr', 'html', 'i', 'iframe', 'img', 'input', 'ins', 'kbd', 'keygen', 'label', 'legend', 'li', 'link', 'main', 'map', 'mark', 'menu', 'menuitem', 'meta', 'meter', 'nav', 'noframes', 'noscript', 'object', 'ol', 'optgroup', 'option', 'output', 'p', 'param', 'pre', 'progress', 'q', 'rp', 'rt', 'ruby', 's', 'samp', 'script', 'section', 'select', 'small', 'source', 'span', 'strike', 'strong', 'style', 'sub', 'summary', 'sup', 'table', 'tbody', 'td', 'textarea', 'tfoot', 'th', 'thead', 'time', 'title', 'tr', 'track', 'tt', 'u', 'ul', 'var', 'video', 'wbr']
+      \ + ['emb', 'btn', 'sty', 'dlg', 'fst', 'fig', 'leg', 'tarea', 'hdr', 'cmd', 'colg', 'art', 'fset', 'src', 'prog', 'bq', 'kg', 'adr' , 'cap', 'datag', 'datal', 'sect', 'str', 'obj', 'ftr', 'optg', 'ifr', 'out', 'det', 'acr', 'opt']
+
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
 
 " tern
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
@@ -114,14 +152,10 @@ autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 " colorizer
 nmap <Leader>tc :ColorToggle<CR>
 
-" NERDTree configuration
-let NERDTreeIgnore=['\.rbc$', '\~$']
-map <Leader>n :NERDTreeToggle<CR>
-
 "" Faster shortcut for commenting. Requires T-Comment plugin
-map <leader>c <c-_><c-_>
+map <Leader>c <c-_><c-_>
 
-map <leader>h :nohlsearch<cr>
+map <Leader>m :noh<cr>
 
 "Bubble single lines (kicks butt)
 "http://vimcasts.org/episodes/bubbling-text/
@@ -139,9 +173,7 @@ nmap gV `[v`]
 vmap <C-Up> xkP`[V`]
 vmap <C-Down> xp`[V`]
 vmap <C-Right> >gv
-vmap <C-Left> <gv Faster shortcut for commenting. Requires T-Comment plugin
-map <leader>c <c-_><c-_>
+vmap <C-Left> <gv "Faster shortcut for commenting. Requires T-Comment plugin
 
-" Emmet
-let g:user_emmet_expandabbr_key = '<c-e>'
+map <Leader>bcc :call CSScomb()<CR>
 

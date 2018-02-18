@@ -17,7 +17,8 @@ function gifify() {
 }
 
 function dev-env(){
-  project_name=`basename "$1"`
+  project_dir=`pwd`
+  project_name=`basename "$project_dir"`
 
   tmux has-session -t "$project_name"
 
@@ -90,4 +91,19 @@ function makepassword() {
   else
     LANG=C tr -dc 'a-zA-Z0-9~!#$%^&*' < /dev/urandom | fold -w 40 | head -n 1
   fi
+}
+
+function bbc() {
+  URL="http://feeds.bbci.co.uk/news/world/rss.xml"
+
+  curl --silent "$URL" | grep -E '(title>|description>)' | \
+    grep -E '(<title>|description)' | \
+    tail -n +4 | \
+    sed -e 's/<!\[CDATA\[//g' -e 's/\]\]>//g' | \
+    sed -e 's/<a.*a>/   /g' | \
+    sed -e 's/<title>//g' -e 's/&lt;.*//' | \
+    sed -e 's/<\/title>//g' -e 's/&lt;.*//' | \
+    sed -e 's/<description>//g' | \
+    sed -e 's/<\/description>/\
+/g'
 }

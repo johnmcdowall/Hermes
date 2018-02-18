@@ -22,7 +22,7 @@ if executable('ag')
       \ --ignore node_modules
       \ --ignore "**/*.pyc"
       \ -g ""'
-  
+
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
@@ -38,13 +38,33 @@ let g:mta_filetypes = {
     \ 'xhtml' : 1,
     \ 'xml' : 1,
     \ 'jinja' : 1,
+    \ 'ejs' : 1,
     \ 'javascript.jsx' : 1,
     \}
 
 let g:mustache_abbreviations = 1
 
 " filenames like *.xml, *.html, *.xhtml, ...
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.ejs"
 
 let g:AutoPairsMultilineClose = 0
 let g:AutoPairsFlyMode = 0
+
+" Emmet
+let g:user_emmet_expandabbr_key = '<c-e>'
+
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
+
+" CSSComb
+autocmd FileType scss,css nnoremap <buffer> <leader>bc :call CSScomb()<CR>
+function! CSScomb()
+  echom "CSS Combing: " . expand('%:p')
+  execute "silent !csscomb " . expand('%:p')
+  redraw!
+endfunction
+

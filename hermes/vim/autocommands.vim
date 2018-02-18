@@ -15,6 +15,7 @@ augroup vimrcEx
   " set it to the first line when editing a git commit message
   " Thanks: https://github.com/spf13/spf13-vim/blob/3.0/.vimrc#L92-L94
   au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
   " Remove trailing whitespace before saving a file
   au FileType ruby,javascript,css,scss,sass,html autocmd BufWritePre <buffer> :%s/\s\+$//e
 augroup END
@@ -33,5 +34,6 @@ au FocusLost * :silent! wall
 "Reload config files after edit
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
+  au BufRead,BufNewFile *.ejs setfiletype html
 endif
 
